@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+.red {
+  color: rgb(185, 28, 28);
+  background-color: rgb(254, 226, 226);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.green {
+  color: rgb(21, 128, 61);
+  background-color: rgb(220, 252, 231);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.grey {
+  color: rgb(100, 116, 139);
+  background-color: rgb(236, 242, 242);
+}
+
+.inputDiv input {
+  max-width: 13rem;
+}
+
+.inputDiv input:focus,
+.inputSection input:focus,
+.inputSection textarea:focus {
+  outline: none;
+  resize: vertical;
+  box-shadow: 0 0 0 1px #0a84ff, 0 0 0 3px rgba(10, 132, 255, 0.3);
+  border-radius: 2px;
+}
+
+.inputDiv .dropDown {
+  max-width: 13rem;
+}
+
+.iconDiv {
+  color: #a6a6a6;
+}
+
+.inputSection textarea {
+  height: fit-content;
+  resize: none;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  padding-left: 10vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 1s ease;
+  overflow-y: scroll;
+}
+
+.drawerClose {
+  transform: translateX(100%);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  nav section {
+    justify-content: space-between;
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  nav section:nth-of-type(1) {
+    margin-bottom: 6px;
   }
 }
