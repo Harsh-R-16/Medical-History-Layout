@@ -18,8 +18,10 @@ export default function Section({ type, temp }) {
   const [show, setShow] = React.useState(false);
   const [showDropdown, setShowDropDown] = React.useState(false);
 
-  const submitHandler = () => {
-    inp.trim() && setData((data) => [...data, inp]);
+  const submitHandler = (text) => {
+    if (text) {
+      setData((data) => [...data, text]);
+    } else inp.trim() && setData((data) => [...data, inp]);
     setInp("");
   };
   // console.log(temp);
@@ -66,10 +68,7 @@ export default function Section({ type, temp }) {
               value={inp}
               onChange={(e) => setInp(e.target.value)}
             />
-            <MdFilterCenterFocus
-              className="scale-125"
-              onClick={submitHandler}
-            />
+            <MdFilterCenterFocus className="scale-125" />
             {showDropdown && (
               <div
                 className="text-black border border-slate-200
@@ -82,11 +81,18 @@ export default function Section({ type, temp }) {
                   suggestions.map((i, index) => (
                     <p
                       key={index}
-                      onClick={() => setInp(i)}
                       className="flex items-center p-3 px-4 hover:bg-slate-200"
                     >
                       <FaHandshake className="text-blue-700 border border-blue-400 rounded-full p-[4px] text-3xl" />
-                      <span className="ml-3 flex-1">{i}</span>
+                      <span
+                        className="ml-3 flex-1 cursor-pointer"
+                        onClick={(e) => {
+                          submitHandler(e.target.innerHTML);
+                          setShowDropDown(false);
+                        }}
+                      >
+                        {i}
+                      </span>
                       <span
                         className="flex items-center"
                         style={{ fontSize: "15px" }}

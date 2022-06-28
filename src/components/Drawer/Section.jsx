@@ -24,9 +24,13 @@ export default function Section({ type, tempData }) {
   const [suggestions, setSuggestions] = React.useState(arr);
   const [showDropdown, setShowDropDown] = React.useState(false);
 
-  const submitHandler = () => {
-    if (inp.trim()) {
-      console.log({ inp, type });
+  const submitHandler = (text) => {
+    if (text) {
+      if (type === "sections") dispatch(addSection(text));
+      else dispatch(addLink(text));
+      setData([...data, text.slice(0, 20)]);
+      setShowDropDown(false);
+    } else if (inp.trim()) {
       if (type === "sections") dispatch(addSection(inp));
       else dispatch(addLink(inp));
       setData([...data, inp.slice(0, 20)]);
@@ -120,7 +124,7 @@ export default function Section({ type, tempData }) {
             onChange={(e) => setInp(e.target.value)}
             onClick={() => setShowDropDown(true)}
           />
-          <MdFilterCenterFocus className="scale-125" onClick={submitHandler} />
+          <MdFilterCenterFocus className="scale-125" />
           {showDropdown && (
             <div
               className="text-black border border-slate-200
@@ -133,11 +137,17 @@ export default function Section({ type, tempData }) {
                 suggestions.map((i, index) => (
                   <p
                     key={index}
-                    onClick={() => setInp(i)}
                     className="flex items-center p-3 px-4 hover:bg-slate-200"
                   >
                     <FaHandshake className="text-blue-700 border border-blue-400 rounded-full p-[4px] text-3xl" />
-                    <span className="ml-3 flex-1">{i}</span>
+                    <span
+                      className="ml-3 flex-1 cursor-pointer"
+                      onClick={(e) => {
+                        submitHandler(e.target.innerHTML);
+                      }}
+                    >
+                      {i}
+                    </span>
                     <span
                       className="flex items-center"
                       style={{ fontSize: "15px" }}
