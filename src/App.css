@@ -45,7 +45,7 @@ aside {
   z-index: 20;
   padding-left: 10vw;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: 1s ease;
+  transition: 0.7s ease;
   overflow-y: scroll;
 }
 

@@ -149,7 +149,7 @@ export default function Section({ type, tempData }) {
                       {i}
                     </span>
                     <span
-                      className="flex items-center"
+                      className="md:flex items-center hidden"
                       style={{ fontSize: "15px" }}
                     >
                       <BsFillArrowUpSquareFill className="text-gray-500 ml-4 mr-1 translate-y-[1px]" />{" "}
