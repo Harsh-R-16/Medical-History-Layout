@@ -53,6 +53,10 @@ aside {
   transform: translateX(100%);
 }
 
+.rotate {
+  transform: rotate(180deg);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

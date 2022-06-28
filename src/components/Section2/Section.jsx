@@ -42,8 +42,8 @@ export default function Section({ type, temp }) {
       <div>
         <h2 className="mb-5 flex items-center text-slate-700 font-medium uppercase tracking-wide">
           <MdKeyboardArrowUp
-            className={`bg-blue-300 cursor-pointer rotate-${
-              show ? 0 : 180
+            className={`bg-blue-300 cursor-pointer ${
+              !show && "rotate"
             } transition ease-in-out text-blue-700 mr-3 rounded-full h-8 w-8 p-1`}
             onClick={() => setShow(!show)}
           />
