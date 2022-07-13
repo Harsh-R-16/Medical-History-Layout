@@ -1,12 +1,10 @@
-import Main from "./components/Main";
-import Drawer from "./components/Drawer/Drawer";
+import Button from "./components/Button/Button";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Main />
-      <Drawer />
+      <Button />
     </>
   );
 }
